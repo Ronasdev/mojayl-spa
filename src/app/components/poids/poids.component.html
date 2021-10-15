@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row my-5">
+    <h4 class="text-info select mx-2 " style="word-wrap: break-word;">Signaler la tranche de poids maximum que vous voulez transporter : </h4>
+  </div>
+  <div class="poid col-lg-6 col-sm-10 col-md-8 m-auto  mx-5 py-3" style="min-height: 400px; overflow-y: auto;">
+
+    <!-- Je vais après reformuler l'url pour passer l'identifiant du pays afin de récuperer ses villes -->
+
+
+    <button *ngFor="let weight of weights; let i = index" (click)="setWeightAndPrice(i)" class="btn btn-info w-100 my-2" style="font-size: x-large;">{{weight}} | tarif: {{prices[i]}}$ </button>
+    <button class="btn btn-warning text-white w-100 p-2" (click)="setWeightAndPrice()" style="font-size: large;">Je n'est pas une tranche de poid maximum à préciser</button>
+  </div>
+</div>

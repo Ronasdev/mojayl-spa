@@ -1,0 +1,35 @@
+<div class="container-fluid col-sm-8 col-md-6 col-lg-4 mx-auto mt-5 ">
+
+  <div class="card">
+      <div class="card-header">
+              <h4 class="card-title text-center text-info">Connectez-vous</h4>
+              <p class="m-auto">
+                <a routerLink="/register" class="text-center m-auto">Cliquez pour s'enregistrer</a>
+              </p>
+      </div>
+      <div class="card-body login-card-body">
+          <form  [formGroup]="form" (ngSubmit)="submit()">
+            <p *ngIf="error" class="text-danger mb-1">L'email ou mot de passe incorrect</p>
+            <div class="input-group mb-3">
+              <input type="email"  class="form-control" placeholder="Email" name="email" formControlName="email" >
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password" name="password" formControlName="password" >
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+             <a  routerLink="/forgot-password" >Mot de passe oublier...</a>
+              <button type="submit" [ngClass]="{'btn':true, 'btn-info':true, 'form-control':true, 'my-3':true,'d-none':chargement }">Connexion</button>
+              <button *ngIf="chargement" class=" btn btn-info form-control my-3" disabled>Connexion en cours....</button>
+          </form>
+      </div>
+  </div>
+</div>

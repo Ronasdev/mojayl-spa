@@ -1,0 +1,49 @@
+<div class="m-5">
+  <p class="lead text-lg ml-auto col-lg-8 col-md-10 col-sm-12" style="text-align: right;">Veillez expedier ou transporter en toute sécurité. <br>Vivez notre expérience</p>
+ <div class="row">
+  <div class="side mr-auto  col-lg-3 col-md-10 col-sm-12 col-xs-12" >
+    <h3 class="lead">Votre profil</h3>
+    <input class="form-control my-4" type="search" name="" placeholder="Recherche" id="">
+    <ul class="list-group">
+      <li class="list-group-item active">Informations personnelles</li>
+      <li class="list-group-item">Mettre une annonce</li>
+      <li class="list-group-item disabled">Chercher un transporteur</li>
+    </ul>
+  </div>
+  <div class="content border pt-5 pb-5 mt-3 col-lg-8 col-md-10 col-sm-12">
+
+    <table class="table  m-auto table-responsive table-sm col-lg-8 col-md-10 col-sm-12 ">
+      <h5 class="lead mb-3">Informations personnelles</h5>
+      <tr>
+        <th>Nom d'utilisateur</th>
+        <td class="px-5">{{user.name}} </td>
+        <td><a class="text-info h6" routerLink="/reset-name">Modifier</a></td>
+      </tr>
+      <tr>
+        <th>Adresse email</th>
+        <td class="px-5">{{user.email}} </td>
+        <td><a class="text-info h6" routerLink="/reset-email">Mettre à jours</a></td>
+      </tr>
+      <tr>
+        <th>Numéro de téléphone</th>
+        <td class="px-5">{{user.mobile}} </td>
+        <td><a class="text-info h6" routerLink="/reset-mobile">Mettre à jours</a></td>
+      </tr>
+      <tr>
+        <th>Mot de passe</th>
+        <td class="h4 px-5">. . . . . . . . . </td>
+        <td><a class="text-info h6" routerLink="/reset-password">Modifier</a></td>
+      </tr>
+      <tr>
+        <th>Adresse du domicile</th>
+        <td class="px-5">{{user.address}} </td>
+        <td><a class="text-info h6" routerLink="/reset-address">Mettre à jours</a></td>
+      </tr>
+
+
+
+    </table>
+   </div>
+ </div>
+</div>
+

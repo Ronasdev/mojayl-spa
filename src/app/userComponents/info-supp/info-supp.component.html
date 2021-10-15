@@ -1,0 +1,54 @@
+<form [formGroup] ="form" (ngSubmit)="submit()" enctype="multipart/form-data" >
+  <div class="container-fluid col-sm-8 col-md-8 col-lg-6 mx-auto "  style=" margin-top: 2%; text-align: center;">
+    <div class="card">
+        <div class="card-header "><h2 class="h4 text-info"> Choisissez une image</h2></div>
+        <div class="card-body" style="padding-top: 50px; padding-bottom: 50px;">
+                <!-- <div class="text-center custom-file">
+
+                  <br><input type="file" class="custom-file-input w-75 mx-auto" style="border: none;"  >
+                  <label class="custom-file-label" for="validatedCustomFile">Choisissez une image...</label>
+                </div> -->
+                <label for="validatedCustomFile"><input type="image" [src]="image" alt="Image de profile" style="width: 150px;height: 150px; background-color: gray ; border-radius: 50%;"></label><br>
+                <div class="custom-file w-75 mx-auto">
+                  <input type="file" (change)="selectFiles($event)" class="custom-file-input" id="validatedCustomFile" formControlName="photo" accept=".jpg,.png,.gif" >
+                  <label class="custom-file-label mt-4" for="validatedCustomFile">Cliquez ici pour choisir une image...</label>
+                </div>
+        </div>
+        <button  type="button" id="btn-register"  class=" w-25 btn btn-info mb-2 ml-auto mr-2  "  data-toggle="modal" data-target="#infoSuplementaire">Passer</button>
+    </div>
+  </div>
+
+     <!-- Informations suplémentaire -->
+     <div class="modal fade" id="infoSuplementaire" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Informations suplementaire</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container"  style="width: 100%; margin-top: 10%; text-align: center;">
+                  <div class="custom-file  mx-auto mb-4">
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" formControlName="card" >
+
+                    <label class="custom-file-label" for="validatedCustomFile">Carte d'identité nationalle</label>
+                  </div>
+  <span>OU</span>
+                  <div class="custom-file  mx-auto my-4">
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" formControlName="card" >
+                    <label class="custom-file-label" for="validatedCustomFile">Votre Passport</label>
+                  </div>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+

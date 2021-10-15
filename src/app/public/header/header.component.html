@@ -1,0 +1,14 @@
+<div class="navbar navbar-expand-md navbar-light bg-light">
+  <a routerActive="active"  routerLink="/home" class="navbar-brand "><b class="text-primary">MOJ<span class="text-secondary">AYL</span> </b></a>
+  <button *ngIf="!loggedIn" type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+ <div  class="navbar-collapse  collapse" id="menu">
+      <ul class="navbar-nav ml-auto ">
+          <li *ngIf="!loggedIn"  class="nav-item"> <a routerActive="active" routerLink="login" class="nav-link btn btn-outline-info m-2 text-info" *ngIf="!loggedIn" >Connexion</a> </li>
+          <li *ngIf="!loggedIn" class="nav-item"> <a routerActive="active" routerLink="register" class="nav-link btn btn-info text-white m-2" *ngIf="!loggedIn" >Inscription</a> </li>
+      </ul>
+
+ </div>
+ <button class=" btn btn-outline-danger" *ngIf="loggedIn" (click)="logOut()" >Deconexion </button>
+</div>

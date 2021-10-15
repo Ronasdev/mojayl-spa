@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row mt-2">
+    <h4 class="text-info my-5 mx-2 select" style="word-wrap: break-word;">INDIQUER LA DATE DE DEPART: </h4>
+  </div>
+  <div class="col-lg-6 col-sm-10 col-md-8 m-auto  my-5 py-3 " style="max-height: 400px; overflow-y: auto; background-color: white;">
+
+    <form (submit)="setDate(form)" #form="ngForm" > <input class="form-control mb-4"  type="date" name="date" id="" ngModel>
+
+       <div class="container w-100">
+         <p class="text-info p-3 border rounded" style="font-size: large;">
+           Vous avez le devoir de respecter la date indiquée ci-dessous.En cas du retard,vous devez le signaler
+           72 heures en avant à l'expediteur et être sûr qu'il l'a approuvé.
+         </p>
+         <input type="submit" value="Suivant" class="btn btn-outline-warning ml-auto">
+       </div>
+    </form>
+   </div>
+</div>

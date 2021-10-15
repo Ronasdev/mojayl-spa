@@ -1,0 +1,95 @@
+<div class="container-fluid col-sm-8 col-md-6 col-lg-4 " style="min-height: 400px;">
+
+  <div class="card mt-3" id="register"  #register >
+      <div class="card-header ">
+          <h4 class=" font-italic text-center m-auto text-info">Inscription</h4>
+      </div>
+      <div class="card-body">
+
+              <form [formGroup]="form"  >
+                  <div class="form-group">
+                      <input type="text"  class="form-control " placeholder="Nom d'utilisateur *" formControlName="name">
+                      <div *ngIf="f.name.touched && f.name.invalid" class="text-danger">
+                        <div *ngIf="f.name.errors.required">Un nom est demandé .</div>
+                        <div *ngIf="f.name.errors.minlength">Le nom est trop court (au moins 2 lettres).</div>
+                      </div>
+
+                      <div class="text-danger" *ngIf="errors.email">{{errors.name}}</div>
+                  </div>
+                  <div class="form-group">
+                      <input type="email"  class="form-control " placeholder="Email valide *" formControlName="email">
+                      <div *ngIf="f.email.touched && f.email.invalid" class="text-danger">
+                        <div *ngIf="f.email.errors.required">Une adresse email est demandée </div>
+                        <div *ngIf="f.email.errors.email">veillez entrer une adresse email valide.</div>
+                      </div>
+
+                      <div class="text-danger" *ngIf="errors.email">{{errors.email}}</div>
+                  </div>
+                  <div class="form-group">
+                      <input type="password" class="form-control " placeholder="Mot de passe *" formControlName="password">
+                      <div *ngIf="f.password.touched && f.password.invalid" class="text-danger">
+                        <div *ngIf="f.password.errors.required">Un mot de passe est demandé </div>
+                        <div *ngIf="f.password.errors.pattern">Le mot de passe est trop court (Au moins 8 caractères)</div>
+                      </div>
+                      <div class="text-danger" *ngIf="errors.password">{{errors.password}}</div>
+                  </div>
+                  <div class="form-group">
+                      <input type="password" class="form-control " placeholder="Confirmez votre mot de passe *" formControlName="password_confirmation">
+                      <div *ngIf="f.password_confirmation.touched && f.password_confirmation.invalid" class="text-danger">
+                        <div *ngIf="f.password_confirmation.errors.required">La confirmation du mot de passe est demandée.</div>
+                        <div *ngIf="f.password_confirmation.errors.pattern">Les mots de passes doivent être même</div>
+                      </div>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <select id="code" style="border-right: dashed 1px !important; color: lightslategrey;">
+
+                          <option value="+229">+33</option>
+                          <option value="+229">+229</option>
+                          <option value="+229">+225</option>
+                          <option value="+229">+223</option>
+                          <option value="+229">+212</option>
+                        </select>
+                    </div>
+                      <input type="tel" class="form-control " placeholder="Téléphone *" formControlName="mobile">
+                      <div *ngIf="f.mobile.touched && f.mobile.invalid" class="text-danger">
+                        <div *ngIf="f.mobile.errors.required">Un numéro de téléphone est demandé .</div>
+                        <div *ngIf="f.mobile.errors.pattern ">Entrez un numero de téléphone valid.</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <input type="text"  class="form-control " placeholder="Addresse de domicile *" formControlName="address">
+                      <div *ngIf="f.address.touched && f.address.invalid" class="text-danger">
+                        <div *ngIf="f.address.errors.required">Votre du domicile valid est demandé.</div>
+                      </div>
+                  </div>
+
+                  <!-- <div id="etatgeneral" *ngIf="form.valid" class="text-success text-center h5" >Vous pouvez continuer...</div> -->
+                  <br>
+
+                  <button  type="button" id="btn-suivant" style="width: 90px; margin-left: 70%; " class="btn btn-info mb-2" [disabled]="!form.valid" (click)="register.style.display='none'; conditions.style.display='block'">Suivant</button>
+              </form>
+              <p>Nous respectons votre vie privée. Les informations fournies seront uniquement utilisées selon les termes de notre politique de <a href="">confidentialité</a> .</p>
+          </div>
+  </div>
+
+
+  <div id="conditions" #conditions class="mt-5" >
+
+    <div class="card text-white bg-info mb-3"  >
+      <div class="card-header">Vous devez accepter nos conditions d'utilisations pour être enregistré</div>
+      <br>
+        <div class=" card-body px-2">
+            <p class="card-text text-white" style="font-size: x-large; text-align: center;" >
+               Acceptez-vous les conditions d'utilisations du  <span class="text-white bg-dark rounded">MOJAYL</span> ?</p>
+            <p class="text-right mb-0"><a  style="color: inherit;" routerLink="/">lire les conditions</a></p>
+        </div>
+    </div>
+    <p>
+      <a  class="btn btn-outline-info w-100 text-center mb-2" (click)= "submit();conditions.style.opacity='0.3';" >J'accepte</a>
+      <a  class="btn btn-outline-warning w-100 text-center" (click)=" conditions.style.display='none';register.style.display='block'">Je refuse</a>
+    </p>
+  </div>
+  <button *ngIf="chargement" class="btn btn-info m-auto" style="position: absolute; top: 45%;  right: 50%; left: 22%; opacity: 1; min-width: 200px;" disabled >Inscription en cours....</button>
+</div>
+

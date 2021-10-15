@@ -1,0 +1,85 @@
+
+
+<div class="nav position-fixed-top" >
+  <label for="check" class="checkbtn"><span class="toggle"></span></label>
+  <span style="text-align: center; margin-right: 20px; cursor: pointer;">
+    <label  routerLink="/profil">
+      <!-- <img [src]="imageUrl" style="width: 30px;height: 30px; background-color: gray ; border-radius: 50%; cursor: pointer;"> -->
+      <span style="cursor: pointer; font-size: larger; border-radius: 20px; border: 1px solid ;"  class="text-info p-2" *ngIf="user!=null">{{user.name}}</span>
+    </label>
+  </span>
+</div>
+
+
+  <div class="main ">
+    <section class="setting">
+      <input type="checkbox"  name="" id="check">
+
+      <ul class="m-right list-group" id="lien">
+
+        <li class="w-100 text-center profil" style="padding-top: 20px;">
+          <a routerActive="active"  routerLink="/profil" style=" font-size: large; font-style: oblique;"><b class="text-warning">Mon compte </b></a>
+          <div class="pt-2  mt-2" style=" background-color: tomato;cursor: pointer;">
+            <span style="text-align: center;">
+              <label  routerLink="/profil"><img [src]="imageUrl" style="width: 50px;height: 50px; background-color: gray ; border-radius: 50%; cursor: pointer;"></label><br>
+              <span  class="text-white" *ngIf="user!=null">{{user.name}}</span><br>
+              <span  class="text-white email" *ngIf="user!=null">{{user.email}}</span>
+            </span>
+          </div>
+        </li>
+
+         <!-- <li class="list-group-item"> <a routerLink="dashboard/name" ><span><i class="fa fa-user" aria-hidden="true"></i></span>Nom d'utilisateur  <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></a> </li> -->
+         <li class="list-group-item li"> <a routerLink="/reset-email" ><span><i class="fa fa-envelope" aria-hidden="true"></i></span> Email </a>  </li>
+         <li class="list-group-item li" > <a routerLink="/reset-password" ><span><i class="fa fa-key" aria-hidden="true"></i></span> Mot de passe </a> </li>
+          <li class="list-group-item li"><a routerLink="/reset-mobile" ><span><i class="fa fa-phone" aria-hidden="true"></i></span> Numero de telephone </a> </li>
+         <li class="list-group-item li"> <a routerLink="/reset-address" ><span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Addresse de domicile </a></li>
+      </ul>
+    </section>
+   <section class="content">
+    <form  enctype="multipart/form-data" >
+      <div style=" margin-top: 2%; text-align: center;">
+        <label  for="photo"><img [src]="imageUrl" style="width: 100px;height: 100px; background-color: gray ; border-radius: 50%;"></label><br>
+        <div >
+          <input type="file" id="photo" accept="image/*" >
+          <label  class="h4 text-info" *ngIf="user!=null"  for="">{{user.name}}</label><br>
+
+          <span class="etoile text-warning " style="font-size: 20px; ">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </form>
+    <h5 class="text-center text-danger" *ngIf="userAnnonces.length !=0">Nombre de livraison: {{userAnnonces.length}} </h5>
+    <h5 class="text-center">-------------------------------------</h5>
+    <div class="table">
+      <p *ngIf="userAnnonces.length==0" class="ml-5 text-info">{{message}} . . . </p>
+      <table *ngFor="let userAnnonce of userAnnonces;let i=index" (click)="userAnnonceIndex=i" class="table table-striped table-responsive table-sm  table-hover  ">
+        <tr>
+          <td id="resume">
+            <h5 class="table-dark p-2">Destination : <span class="text-info">{{userAnnonce.city}} - {{userAnnonce.destination}}</span></h5>
+            <li class="table-light">Date de départ : <span style="margin-left: 6.6em;" class="text-success">{{userAnnonce.start_date | date}}</span></li>
+            <li class="table-light">Tranche de poids minimum : <span class="text-danger ml-4">de 1kg à 5kg</span> </li>
+            <li class="table-light">Tranche de poids maximum : <span class="text-info ml-4">{{userAnnonce.weight}}</span></li>
+            <li class="table-light">Adresse de domicile : <span style="margin-left: 4.5em;" class="text-danger">{{user.address}}</span></li>
+
+            <p class="table-light pb-2 text-center">
+              <button  [disabled]="userAnnonces.length==0" (click)="onUpdateAnnonce(userAnnonceIndex)" style="border-radius: 10px 10px 10px 10px;height: 40px; font-size:large;" class="btn btn-warning mr-3 mt-2">Modifier l'annonce</button>
+              <button [disabled]="userAnnonces.length==0" (click)="onDeleteAnnonce(userAnnonceIndex)" style="border-radius: 10px 10px 10px 10px;height: 40px; font-size:large;" class="btn btn-danger mt-2">Annuler l'annonce</button>
+            </p>
+
+
+          </td>
+          <hr>
+        </tr>
+      </table>
+    </div>
+
+
+   </section>
+
+  </div>
+

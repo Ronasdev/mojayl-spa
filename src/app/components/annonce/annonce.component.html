@@ -1,0 +1,68 @@
+<div class="nav position-fixed-top" >
+  <label for="check" class="checkbtn"><span class="toggle"></span></label>
+  <span style="text-align: center; margin-right: 20px; cursor: pointer;">
+    <label  routerLink="/profil">
+      <!-- <img [src]="imageUrl" style="width: 30px;height: 30px; background-color: gray ; border-radius: 50%; cursor: pointer;"> -->
+      <span style="cursor: pointer; font-size: larger; border-radius: 20px; border: 1px solid ;"  class="text-info p-2" *ngIf="user!=null">{{user.name}}</span>
+    </label>
+  </span>
+</div>
+  <div class="main ">
+    <section class="setting">
+      <input type="checkbox"  name="" id="check">
+
+      <ul class="m-right list-group" id="lien">
+
+        <li class="w-100 text-center profil" style="padding-top: 20px;">
+          <a routerActive="active"  routerLink="/profil" style=" font-size: large; font-style: oblique;"><b class="text-warning">Mon compte </b></a>
+          <div class="pt-2  mt-2" style=" background-color: tomato;cursor: pointer;">
+            <span style="text-align: center;">
+              <label  routerLink="/profil"><img [src]="imageUrl" style="width: 50px;height: 50px; background-color: gray ; border-radius: 50%; cursor: pointer;"></label><br>
+              <span  class="text-white" *ngIf="user!=null">{{user.name}}</span><br>
+              <span  class="text-white email" *ngIf="user!=null">{{user.email}}</span>
+            </span>
+          </div>
+        </li>
+
+         <!-- <li class="list-group-item"> <a routerLink="dashboard/name" ><span><i class="fa fa-user" aria-hidden="true"></i></span>Nom d'utilisateur  <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></a> </li> -->
+         <li class="list-group-item li"> <a routerLink="/reset-email" ><span><i class="fa fa-envelope" aria-hidden="true"></i></span> Email </a>  </li>
+         <li class="list-group-item li" > <a routerLink="/reset-password" ><span><i class="fa fa-key" aria-hidden="true"></i></span> Mot de passe </a> </li>
+          <li class="list-group-item li"><a routerLink="/reset-mobile" ><span><i class="fa fa-phone" aria-hidden="true"></i></span> Numero de telephone </a> </li>
+         <li class="list-group-item li"> <a routerLink="/reset-address" ><span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Addresse de domicile </a></li>
+      </ul>
+    </section>
+  <section class="content">
+    <form  enctype="multipart/form-data" >
+      <div style=" margin-top: 2%; text-align: center;">
+        <label  for="photo"><img *ngIf="author" [src]="(author.photo!=null)?baseUrl+author.photo : imageDefault" style="width: 100px;height: 100px; background-color: gray ; border-radius: 50%;"></label><br>
+        <div >
+          <input type="file" id="photo" accept="image/*" >
+          <label id="labelPhoto" class="h4 text-info" *ngIf="author!=null"  for="photo">{{author.name}}</label><br>
+
+          <span class="etoile text-warning " style="font-size: 40px; margin: 5px;">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </form>
+    <h5 *ngIf="annonce" class="ml-4">Poster par <span class="text-secondary h3" style="font-style: oblique;">{{author.name}}</span>  </h5>
+    <ul *ngIf="annonce"  class="text-info ml-4">
+      <li>Tranche de poids minimum : {{annonce.weight}} </li>
+      <li>Tranche de poids maximum : de 21 à 25kg</li>
+      <li>Adresse de domicile : <span class="text-secondary">{{author.address}}</span></li>
+      <li>Date de départ : {{annonce.start_date}}</li>
+      <li>Destination : {{annonce.city}}; {{annonce.destination}}</li>
+    </ul>
+    <p *ngIf="annonce==null" class="ml-5">{{message}} </p>
+    <div class="container container-fluid col-sm-8 col-md-6 col-lg-4 mx-auto text-center">
+      <button style="border-radius: 20px 20px 20px 20px;height: 60px; font-size:x-large;" class="btn btn-info "><a routerLink="/poster/message">Contacter</a></button>
+
+    </div>
+  </section>
+
+  </div>
+

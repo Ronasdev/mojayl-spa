@@ -1,0 +1,70 @@
+
+
+
+  <div class="nav position-fixed-top" >
+    <label for="check" class="checkbtn"><span class="toggle"></span></label>
+
+    <div class="notifications ">
+      <span><i style="color: rgb(243, 206, 19) ; cursor: pointer;" class="fa fa-gift" aria-hidden="true"></i></span>
+      <span><i style="color: red; cursor: pointer;" class="fa fa-times " aria-hidden="true"></i></span>
+      <span><i style="cursor: pointer;"  class="fas fa-shipping-fast"></i></span>
+      <a  routerLink="/annonce-resume" style="cursor: pointer;" class="text-info">Voir vos annonces</a>
+    </div>
+    <span style="text-align: center; margin-right: 20px; cursor: pointer;">
+      <label routerLink="/profil">
+        <!-- <img [src]="imageUrl" style="width: 30px;height: 30px; background-color: gray ; border-radius: 50%; cursor: pointer;"> -->
+        <span style="cursor: pointer; font-size: larger; border-radius: 20px; border: 1px solid ;"  class="text-info p-2" *ngIf="user!=null">{{user.name}}</span>
+      </label>
+
+    </span>
+  </div>
+
+
+
+  <div class="main ">
+    <section class="setting">
+      <input type="checkbox"  name="" id="check">
+
+      <ul class="m-right list-group" id="lien">
+
+        <li class="w-100 text-center profil" style="padding-top: 20px;" >
+          <a routerActive="active"  routerLink="/profil" style=" font-size: large; font-style: oblique;"><b class="text-warning">Mon compte </b></a>
+          <div class="pt-2 mt-2" style=" background-color: tomato;cursor: pointer;">
+            <span style="text-align: center;">
+              <label routerLink="/profil"><img [src]="imageUrl" style="width: 50px;height: 50px; background-color: gray ; border-radius: 50%; cursor: pointer;"></label><br>
+              <span  class="text-white" *ngIf="user!=null">{{user.name}}</span><br>
+              <span  class="text-white email" *ngIf="user!=null">{{user.email}}</span>
+            </span>
+          </div>
+        </li>
+
+         <!-- <li class="list-group-item"> <a routerLink="dashboard/name" ><span><i class="fa fa-user" aria-hidden="true"></i></span>Nom d'utilisateur  <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></a> </li> -->
+          <li class="list-group-item li"> <a routerLink="/reset-email" ><span><i class="fa fa-envelope" aria-hidden="true"></i></span> Email </a>  </li>
+         <li class="list-group-item li" > <a routerLink="/update-password" ><span><i class="fa fa-key" aria-hidden="true"></i></span> Mot de passe </a> </li>
+          <li class="list-group-item li"><a routerLink="/reset-mobile" ><span><i class="fa fa-phone" aria-hidden="true"></i></span> Numero de telephone </a> </li>
+         <li class="list-group-item li"> <a routerLink="/reset-address" ><span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Addresse de domicile </a></li>
+      </ul>
+    </section>
+    <section class="content">
+      <form   [formGroup]="form" >
+        <div style=" margin-top: 2%; text-align: center;">
+          <label  for="photo"><img [src]="imageUrl" style="width: 100px;height: 100px; background-color: gray ; border-radius: 50%;cursor: pointer;"><br>
+            <label *ngIf="user!=null && defaultPhoto" for="photo" class="text-info" style="cursor: pointer;">Ajouter une photo de profil</label>
+          </label><br>
+          <div >
+            <input type="file" (change)="changePhoto($event)" id="photo" accept="image/*" formControlName="photo" >
+            <label class="h4 text-info" style="font-style: oblique;" *ngIf="user!=null">{{user.name}}</label>
+
+
+          </div>
+        </div>
+      </form>
+
+      <div class="container container-fluid col-sm-8 col-md-8 col-lg-6 mx-auto">
+        <a routerLink="/transporter/country"><button  style="border-radius: 20px 20px 20px 20px;height: 60px; font-size:x-large;" class="btn btn-info w-100 my-5">Mettre une annonce</button></a><br>
+        <a routerLink="/expediteur/country"><button  style="border-radius: 20px 20px 20px 20px;height: 60px; font-size:x-large;" class="btn btn-info w-100 ">Chercher un transporteur</button></a>
+      </div>
+
+    </section>
+  </div>
+

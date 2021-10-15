@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row mt-2">
+    <h4 class="text-primary select mx-2 " style="word-wrap: break-word;">SELECTIONNER UNE VILLE: <span class="text-info">{{country }} </span> </h4>
+    <form class="w-50"><input (keyup)="getCountryCities()" class="form-control mb-4"  type="search" name="search" id="search" placeholder="Rechercher la ville de destination"></form>
+
+  </div>
+  <div class="ville col-lg-6 col-sm-10 col-md-8 m-auto" style="min-height: 400px; overflow-y: auto;">
+
+    <!-- Je vais après reformuler l'url pour passer l'identifiant du pays afin de récuperer ses villes -->
+
+    <button *ngFor="let city of cities;let i = index" (click)="getCity(i)" class="btn btn-info w-100 my-2">{{city.name}}</button>
+
+  </div>
+</div>
+
