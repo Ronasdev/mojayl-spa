@@ -42,7 +42,7 @@ export class UserService {
   }
   //login
   login(data:any){
-    return this.http.post('http://127.0.0.1:8000/oauth/token',data);
+    return this.http.post('https://mojayl-api.herokuapp.com/oauth/token',data);
   }
 
   //User info
@@ -50,14 +50,14 @@ export class UserService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     });
-   return this.http.get('http://localhost:8000/user', {headers: headers})
+   return this.http.get('https://mojayl-api.herokuapp.com/user', {headers: headers})
   }
 
   uploadFile(data:any){
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     });
-    return this.http.post(environment.apiUrl+'/user/photo',data,{headers:headers});
+    return this.http.post('https://mojayl-api.herokuapp.com/user/photo',data,{headers:headers});
   }
 
   //logOut
@@ -65,16 +65,16 @@ export class UserService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     });
-   return this.http.post('http://localhost:8000/logout',{allDevice:allDevice}, {headers: headers});
+   return this.http.post('https://mojayl-api.herokuapp.com/logout',{allDevice:allDevice}, {headers: headers});
   }
 
   //register
   register(formData:any){
-   return this.http.post('http://localhost:8000/register', formData)
+   return this.http.post('https://mojayl-api.herokuapp.com/register', formData)
   }
   //forgot password
   forgot(email:string){
-    return this.http.post('http://localhost:8000/forgot',{email:email})
+    return this.http.post('https://mojayl-api.herokuapp.com/forgot',{email:email})
   }
 
   //Reset pass
@@ -85,7 +85,7 @@ export class UserService {
       password_confirmation:password_confirmation
     };
 
-    return this.http.post('http://localhost:8000/reset', data)
+    return this.http.post('https://mojayl-api.herokuapp.com/reset', data)
 
   }
 
@@ -93,25 +93,25 @@ export class UserService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     });
-      return this.http.post('http://localhost:8000/reset_email',formData,{headers:headers});
+      return this.http.post('https://mojayl-api.herokuapp.com/reset_email',formData,{headers:headers});
   }
   updatePassword(formData:any){
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     });
-      return this.http.post('http://localhost:8000/update_password',formData,{headers:headers});
+      return this.http.post('https://mojayl-api.herokuapp.com/update_password',formData,{headers:headers});
   }
   resetMobile(formData:any){
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     });
-      return this.http.post('http://localhost:8000/reset_mobile',formData,{headers:headers});
+      return this.http.post('https://mojayl-api.herokuapp.com/reset_mobile',formData,{headers:headers});
   }
   resetAddress(formData:any){
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     });
-      return this.http.post('http://localhost:8000/reset_address',formData,{headers:headers});
+      return this.http.post('https://mojayl-api.herokuapp.com/reset_address',formData,{headers:headers});
   }
 
   profilReset(formData:any){
@@ -119,6 +119,6 @@ export class UserService {
       'Authorization': `Bearer ${sessionStorage.getItem('token')}`
     });
 
-    return this.http.put('http://localhost:8000/user_reset',formData,{headers:headers});
+    return this.http.put('https://mojayl-api.herokuapp.com/user_reset',formData,{headers:headers});
   }
 }

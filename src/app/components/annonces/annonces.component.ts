@@ -12,7 +12,7 @@ export class AnnoncesComponent implements OnInit {
 
     //Objets contenants des tableaux d'annonces de chaque transporteur
     annonces:any=[];
-    baseUrl='http://localhost:8000/public/imagesProfil/';
+    baseUrl='https://mojayl-api.herokuapp.com/public/imagesProfil/';
     imageUrl='../../../assets/images/profil.jpg';
     message:string ='';
 

@@ -33,7 +33,7 @@ submit(){
     password: formData.password,
     grant_type:'password',
     client_id: 2,
-    client_secret: 'LNOrA08E6uZDhaMKAeRY315Wp3BRL0LTTxPHgvB7',
+    client_secret: '75rTNfjQvjetkYOfh5k3AxOK2rzKSAvfHSyoQuh5',
     scope:'*'
     };
 

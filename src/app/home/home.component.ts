@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
           this.imageUrl ='../../../assets/images/profil.jpg';
           this.defaultPhoto=true;
         }else{
-          this.imageUrl ='http://localhost:8000/public/imagesProfil/'+this.user.photo ;
+          this.imageUrl ='https://mojayl-api.herokuapp.com/public/imagesProfil/'+this.user.photo ;
           this.defaultPhoto=false;
         }
 
@@ -62,7 +62,9 @@ export class HomeComponent implements OnInit {
     formData.append('photo',this.files,this.files.name);
     this.userInfo.uploadFile(formData).subscribe(
       (res:any)=>{
-          this.imageUrl = environment.apiUrl+'/public/imagesProfil/'+res.profilUrl;
+          this.imageUrl = 'https://mojayl-api.herokuapp.com/public/imagesProfil/'+res.profilUrl;
+
+          console.log(this.imageUrl);
 
           if (res.success ===true) {
             this.toastr.success(res.message,"",{

@@ -24,7 +24,7 @@ export class AnnonceResumeComponent implements OnInit {
     this.user=localStorage.getItem('user');
     this.user= JSON.parse(this.user);
     if( this.user.photo!='') {
-      this.imageUrl ='http://localhost:8000/public/imagesProfil/'+this.user.photo ;
+      this.imageUrl ='https://mojayl-api.herokuapp.com/public/imagesProfil/'+this.user.photo ;
           this.defaultPhoto=false;
     }
       this.onGetAnnonces();

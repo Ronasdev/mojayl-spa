@@ -14,7 +14,7 @@
                         <div *ngIf="f.name.errors.minlength">Le nom est trop court (au moins 2 lettres).</div>
                       </div>
 
-                      <div class="text-danger" *ngIf="errors.email">{{errors.name}}</div>
+                      <div class="text-danger" *ngIf="errors.name">{{errors.name}}</div>
                   </div>
                   <div class="form-group">
                       <input type="email"  class="form-control " placeholder="Email valide *" formControlName="email">

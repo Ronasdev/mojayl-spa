@@ -17,7 +17,7 @@ export class AnnonceComponent implements OnInit {
 
   imageUrl="../../../assets/images/profil.jpg";
   imageDefault ="../../../assets/images/profil.jpg";
-  baseUrl='http://localhost:8000/public/imagesProfil/';
+  baseUrl='https://mojayl-api.herokuapp.com/public/imagesProfil/';
   defaultPhoto:any;
 
   constructor(private route:ActivatedRoute,private annoneService:AnnonceService,private router:Router) { }
