@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../services/user.service';
-import { environment } from "../../environments/environment.prod";
+import { environment } from "../../environments/environment";
 import { ConversationService } from '../services/conversation.service';
 import Pusher from 'pusher-js';
 

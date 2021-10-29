@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnnonceService } from 'src/app/services/annonce.service';
-import { environment } from "../../../environments/environment.prod";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-annonce',
