@@ -24,9 +24,9 @@ a{
               0 32px 64px -48px rgba(0,0,0,0.5);
 }
 
-:is(.chat-box)::-webkit-scrollbar{
+// :is(.chat-box)::-webkit-scrollbar{
 
-}
+// }
 
 
 /* Chat Area CSS Start */
@@ -228,37 +228,37 @@ a{
     }
   }
 
-/* Responive media query */
-@media screen and (max-width: 450px) {
+// /* Responive media query */
+// @media screen and (max-width: 450px) {
 
-  .chat-area header{
-    padding: 15px 20px;
-  }
-  .chat-box{
-    min-height: 400px;
-    padding: 10px 15px 15px 20px;
-  }
-  .chat-box .chat p{
-    font-size: 15px;
-  }
-  .chat-box .outogoing .details{
-    max-width: 230px;
-  }
-  .chat-box .incoming .details{
-    max-width: 265px;
-  }
-  .incoming .details img{
-    height: 30px;
-    width: 30px;
-  }
-  .chat-area form{
-    padding: 20px;
-  }
-  .chat-area form input{
-    height: 40px;
-    width: calc(100% - 48px);
-  }
-  .chat-area form button{
-    width: 45px;
-  }
-}
+//   .chat-area header{
+//     padding: 15px 20px;
+//   }
+//   .chat-box{
+//     min-height: 400px;
+//     padding: 10px 15px 15px 20px;
+//   }
+//   .chat-box .chat p{
+//     font-size: 15px;
+//   }
+//   .chat-box .outogoing .details{
+//     max-width: 230px;
+//   }
+//   .chat-box .incoming .details{
+//     max-width: 265px;
+//   }
+//   .incoming .details img{
+//     height: 30px;
+//     width: 30px;
+//   }
+//   .chat-area form{
+//     padding: 20px;
+//   }
+//   .chat-area form input{
+//     height: 40px;
+//     width: calc(100% - 48px);
+//   }
+//   .chat-area form button{
+//     width: 45px;
+//   }
+// }
