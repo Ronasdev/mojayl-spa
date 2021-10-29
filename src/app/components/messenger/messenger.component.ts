@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConversationService } from 'src/app/services/conversation.service';
-import { environment } from "../../../environments/environment";
+import { environment } from "../../../environments/environment.prod";
 import * as moment from 'moment';
 import Pusher from 'pusher-js';
 

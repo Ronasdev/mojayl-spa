@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnonceService } from 'src/app/services/annonce.service';
-import { environment } from "../../../environments/environment";
+import { environment } from "../../../environments/environment.prod";
 
 @Component({
   selector: 'app-annonces',
