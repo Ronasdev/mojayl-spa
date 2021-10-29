@@ -26,7 +26,6 @@ import { ResetEmailComponent } from './userComponents/reset-email/reset-email.co
 import { ResetMobileComponent } from './userComponents/reset-mobile/reset-mobile.component';
 import { ResetPasswordComponent } from './userComponents/reset-password/reset-password.component';
 import { UpdatePasswordComponent } from './userComponents/update-password/update-password.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},

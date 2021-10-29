@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './public/header/header.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { UserModule } from './userComponents/user.module';
@@ -35,7 +34,6 @@ import { ConversationsComponent } from './components/conversations/conversations
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    WelcomeComponent,
     HomeComponent,
     UsingConditionsComponent,
     PaysComponent,
