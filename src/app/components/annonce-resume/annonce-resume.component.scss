@@ -71,7 +71,7 @@ a, a:hover{
  top: 115px;
  left:0%;
  width: 25%;
- height:90%;
+ height:100%;
  transition: 0.3s ;
  background-color: white;
  box-shadow:0 0 0,0 0 1px;
@@ -91,6 +91,15 @@ a, a:hover{
 }
 .m-right li:hover{
   background-color: lightblue;
+  color: white;
+}
+.m-right .li{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.m-right .li a{
+  display: block;
+  width: 100% !important;
 }
 .m-right .profil:hover{
   background-color: white;
@@ -98,6 +107,9 @@ a, a:hover{
 
 button{
   margin-bottom: 0 !important;
+}
+#resume{
+  text-align: left;
 }
 #resume li{
   padding-left: .5rem;
@@ -116,15 +128,20 @@ li{
   width: 50%;
   display: inline-block;
 }
-
+.btnGroup{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+}
 @media screen and (max-width:1100px){
 
   .m-right{
-     width: 32%;
+     width: 40%;
   }
   .table table{
-    width: 100%;
-    margin-left: 5%;
+    width: auto;
+    margin: auto;
   }
 }
 @media screen and (max-width:780px){
@@ -133,6 +150,7 @@ li{
     }
   .m-right{
     left: -120%;
+    width: 50% !important;
  }
   .content{
     width: 100%;
@@ -140,7 +158,7 @@ li{
     margin-right: auto;
   }
   .table table{
-    width: 100%;
+    width: auto;
   }
   .table table li span{
     margin-left: 0 !important;

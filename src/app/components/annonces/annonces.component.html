@@ -4,7 +4,7 @@
   <div style="background-color: white;" class="p-3">
     <p *ngFor="let annonce of annonces; let i = index" class="border rounded  mx-auto pl-2  my-2" style="height: 45px; font-size: x-large;">
       <a routerActive="active" [routerLink]="'/annonce/'+annonce.id" >
-        <label  for="photo" style="line-height: 40px; cursor: pointer; overflow: hidden; width: 100%;"><img  [src]="(userInfo[i].photo!=null)?baseUrl+userInfo[i].photo:imageUrl" style="width: 30px;height: 30px; background-color: gray ; border-radius: 50%;  ;"> {{annonce.start_date}} - destination : {{annonce.city}}-{{annonce.destination}}  </label>
+        <label  for="photo" style="line-height: 40px; cursor: pointer; overflow: hidden; width: 100%;"><img  [src]="(userInfo[i].photo!=null)?baseUrl+userInfo[i].photo:imageUrl" style="width: 30px;height: 30px; background-color: gray ; border-radius: 50%;  ;"> {{annonce.start_date |date : 'M/d/yy'}} - destination : {{annonce.city}}-{{annonce.destination}}  </label>
       </a>
     </p>
     <div *ngIf="annonces==''">

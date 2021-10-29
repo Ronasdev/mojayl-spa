@@ -39,7 +39,7 @@
           <input type="file" id="photo" accept="image/*" >
           <label id="labelPhoto" class="h4 text-info" *ngIf="author!=null"  for="photo">{{author.name}}</label><br>
 
-          <span class="etoile text-warning " style="font-size: 40px; margin: 5px;">
+          <span class="etoile text-warning " style="font-size: 20px; margin: 5px;">
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
@@ -49,17 +49,17 @@
         </div>
       </div>
     </form>
-    <h5 *ngIf="annonce" class="ml-4">Poster par <span class="text-secondary h3" style="font-style: oblique;">{{author.name}}</span>  </h5>
+    <h5 *ngIf="annonce" class="ml-4">Poster par <span class="text-secondary h5" style="font-style: oblique;">{{author.name}}</span>  </h5>
     <ul *ngIf="annonce"  class="text-info ml-4">
       <li>Tranche de poids minimum : {{annonce.weight}} </li>
       <li>Tranche de poids maximum : de 21 à 25kg</li>
       <li>Adresse de domicile : <span class="text-secondary">{{author.address}}</span></li>
-      <li>Date de départ : {{annonce.start_date}}</li>
+      <li>Date de départ : {{annonce.start_date|date: 'M/d/yy'}}</li>
       <li>Destination : {{annonce.city}}; {{annonce.destination}}</li>
     </ul>
     <p *ngIf="annonce==null" class="ml-5">{{message}} </p>
     <div class="container container-fluid col-sm-8 col-md-6 col-lg-4 mx-auto text-center">
-      <button style="border-radius: 20px 20px 20px 20px;height: 60px; font-size:x-large;" class="btn btn-info "><a routerLink="/poster/message">Contacter</a></button>
+      <button *ngIf="author && author.email != user.email" style="border-radius: 20px 20px 20px 20px;height: 60px; font-size:x-large;" class="btn btn-info "><a [routerLink]="'/conversations/'+author.id">Contacter</a></button>
 
     </div>
   </section>

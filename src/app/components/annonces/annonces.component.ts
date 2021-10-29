@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnonceService } from 'src/app/services/annonce.service';
+import { environment } from "../../../environments/environment.prod";
 
 @Component({
   selector: 'app-annonces',
@@ -12,7 +13,7 @@ export class AnnoncesComponent implements OnInit {
 
     //Objets contenants des tableaux d'annonces de chaque transporteur
     annonces:any=[];
-    baseUrl='https://mojayl-api.herokuapp.com/public/imagesProfil/';
+    baseUrl=environment.apiUrl+'public/imagesProfil/';
     imageUrl='../../../assets/images/profil.jpg';
     message:string ='';
 

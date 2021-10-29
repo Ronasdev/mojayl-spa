@@ -55,20 +55,20 @@
     </form>
     <h5 class="text-center text-danger" *ngIf="userAnnonces.length !=0">Nombre de livraison: {{userAnnonces.length}} </h5>
     <h5 class="text-center">-------------------------------------</h5>
-    <div class="table">
+    <div class="table text-center">
       <p *ngIf="userAnnonces.length==0" class="ml-5 text-info">{{message}} . . . </p>
       <table *ngFor="let userAnnonce of userAnnonces;let i=index" (click)="userAnnonceIndex=i" class="table table-striped table-responsive table-sm  table-hover  ">
         <tr>
           <td id="resume">
             <h5 class="table-dark p-2">Destination : <span class="text-info">{{userAnnonce.city}} - {{userAnnonce.destination}}</span></h5>
-            <li class="table-light">Date de départ : <span style="margin-left: 6.6em;" class="text-success">{{userAnnonce.start_date | date}}</span></li>
+            <li class="table-light">Date de départ : <span style="margin-left: 6.6em;" class="text-success">{{userAnnonce.start_date | date  : 'M/d/yy' }}</span></li>
             <li class="table-light">Tranche de poids minimum : <span class="text-danger ml-4">de 1kg à 5kg</span> </li>
             <li class="table-light">Tranche de poids maximum : <span class="text-info ml-4">{{userAnnonce.weight}}</span></li>
             <li class="table-light">Adresse de domicile : <span style="margin-left: 4.5em;" class="text-danger">{{user.address}}</span></li>
 
-            <p class="table-light pb-2 text-center">
-              <button  [disabled]="userAnnonces.length==0" (click)="onUpdateAnnonce(userAnnonceIndex)" style="border-radius: 10px 10px 10px 10px;height: 40px; font-size:large;" class="btn btn-warning mr-3 mt-2">Modifier l'annonce</button>
-              <button [disabled]="userAnnonces.length==0" (click)="onDeleteAnnonce(userAnnonceIndex)" style="border-radius: 10px 10px 10px 10px;height: 40px; font-size:large;" class="btn btn-danger mt-2">Annuler l'annonce</button>
+            <p class="table-light pb-2 text-center btnGroup">
+              <button  [disabled]="userAnnonces.length==0" (click)="onUpdateAnnonce(userAnnonceIndex)" style="border-radius: 10px 10px 10px 10px;height: 40px; font-size:large; border: none;" class="btn btn-warning mr-3 mt-2">Modifier</button>
+              <button [disabled]="userAnnonces.length==0" (click)="onDeleteAnnonce(userAnnonceIndex)" style="border-radius: 10px 10px 10px 10px;height: 40px; font-size:large; border: none;" class="btn btn-danger mt-2">Annuler</button>
             </p>
 
 

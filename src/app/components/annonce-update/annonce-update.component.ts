@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-annonce-update',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnnonceUpdateComponent implements OnInit {
 
-  constructor() { }
+  annonceId:number=0;
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.annonceId = this.route.snapshot.params['id'];
+    console.log(this.annonceId);
+
   }
 
 }

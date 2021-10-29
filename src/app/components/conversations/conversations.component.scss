@@ -1,0 +1,49 @@
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.container{
+  height: 100%;
+  box-shadow: 0 0 6px;
+  border-radius: 10px;
+}
+.content{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+.p{
+  background-color: white;
+  width: 100%;
+  height: 60px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  text-shadow: 2px 2px 2px ;
+}
+.p span{
+  margin-left: auto;
+  margin-right: 0;
+}
+@media screen and (max-width:780px) {
+  p label{
+    font-size: small !important;
+  }
+}
+
+.box{
+  box-shadow: 0 0 4px;
+  margin: 0;
+  padding: 0;
+}
+.name{
+  margin-left: 20px;
+  font-size: x-large;
+  font-style: italic;
+  color:rgb(105, 230, 98) ;
+}
+span{
+  margin-right: 20px;
+}

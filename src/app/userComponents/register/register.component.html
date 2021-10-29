@@ -42,7 +42,7 @@
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-append">
-                        <select id="code" style="border-right: dashed 1px !important; color: lightslategrey;">
+                        <select id="code" style=" color: lightslategrey;">
 
                           <option value="+229">+33</option>
                           <option value="+229">+229</option>
@@ -54,13 +54,13 @@
                       <input type="tel" class="form-control " placeholder="Téléphone *" formControlName="mobile">
                       <div *ngIf="f.mobile.touched && f.mobile.invalid" class="text-danger">
                         <div *ngIf="f.mobile.errors.required">Un numéro de téléphone est demandé .</div>
-                        <div *ngIf="f.mobile.errors.pattern ">Entrez un numero de téléphone valid.</div>
+                        <div *ngIf="f.mobile.errors.pattern ">Entrez un numero de téléphone valide.</div>
                       </div>
                   </div>
                   <div class="form-group">
                       <input type="text"  class="form-control " placeholder="Addresse de domicile *" formControlName="address">
                       <div *ngIf="f.address.touched && f.address.invalid" class="text-danger">
-                        <div *ngIf="f.address.errors.required">Votre du domicile valid est demandé.</div>
+                        <div *ngIf="f.address.errors.required">Votre adresse du domicile est demandé.</div>
                       </div>
                   </div>
 
@@ -87,7 +87,7 @@
     </div>
     <p>
       <a  class="btn btn-outline-info w-100 text-center mb-2" (click)= "submit();conditions.style.opacity='0.3';" >J'accepte</a>
-      <a  class="btn btn-outline-warning w-100 text-center" (click)=" conditions.style.display='none';register.style.display='block'">Je refuse</a>
+      <a  class="btn btn-outline-warning w-100 text-center" (click)=" conditions.style.display='none';conditions.style.opacity='1';register.style.display='block'">Je refuse</a>
     </p>
   </div>
   <button *ngIf="chargement" class="btn btn-info m-auto" style="position: absolute; top: 45%;  right: 50%; left: 22%; opacity: 1; min-width: 200px;" disabled >Inscription en cours....</button>

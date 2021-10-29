@@ -82,6 +82,7 @@ suivant(){
           let cond:any =  document.querySelector('#conditions');
           let regis:any =  document.querySelector('#register');
           cond.style.diplay='none';
+          cond.style.opacity=1;
           regis.style.display = "block";
          console.log(error.error.errors);
           this.router.navigate(['/register']);

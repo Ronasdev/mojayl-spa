@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AnnonceService } from 'src/app/services/annonce.service';
+import { environment } from "../../../environments/environment.prod";
 
 @Component({
   selector: 'app-annonce-resume',
@@ -24,7 +25,7 @@ export class AnnonceResumeComponent implements OnInit {
     this.user=localStorage.getItem('user');
     this.user= JSON.parse(this.user);
     if( this.user.photo!='') {
-      this.imageUrl ='https://mojayl-api.herokuapp.com/public/imagesProfil/'+this.user.photo ;
+      this.imageUrl =environment.apiUrl+'public/imagesProfil/'+this.user.photo ;
           this.defaultPhoto=false;
     }
       this.onGetAnnonces();
@@ -50,6 +51,7 @@ export class AnnonceResumeComponent implements OnInit {
   onUpdateAnnonce(index:number){
 
     const id = this.userAnnonces[index].id;
+    this.router.navigate(['annonce-update',id]);
 
   }
   onDeleteAnnonce(index:number){

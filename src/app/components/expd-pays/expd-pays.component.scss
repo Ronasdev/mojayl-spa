@@ -1,0 +1,18 @@
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.pays{
+  background-color: white;
+}
+
+@media screen and (max-width:780px){
+  form{
+    width: 80% !important;
+    margin: auto;
+    text-align: center;
+  }
+  .select{
+    font-size: medium;
+  }
+}

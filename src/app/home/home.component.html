@@ -5,10 +5,12 @@
     <label for="check" class="checkbtn"><span class="toggle"></span></label>
 
     <div class="notifications ">
-      <span><i style="color: rgb(243, 206, 19) ; cursor: pointer;" class="fa fa-gift" aria-hidden="true"></i></span>
-      <span><i style="color: red; cursor: pointer;" class="fa fa-times " aria-hidden="true"></i></span>
-      <span><i style="cursor: pointer;"  class="fas fa-shipping-fast"></i></span>
-      <a  routerLink="/annonce-resume" style="cursor: pointer;" class="text-info">Voir vos annonces</a>
+      <a><i style="color: rgb(243, 206, 19) ; cursor: pointer;" class="fa fa-gift" aria-hidden="true"></i></a>
+      <a><i style="color: red; cursor: pointer;" class="fa fa-times " aria-hidden="true"></i></a>
+      <a class="expediteur" routerLink="/conversations"><i  class="fas fa-shipping-fast"> </i>
+        <small  *ngIf="conversationCount !=0"  class="badge badge-pill badge-danger">{{conversationCount}}</small>
+      </a>
+      <a  routerLink="/annonce-resume" style="cursor: pointer; " class="text-info py-3">Voir vos annonces</a>
     </div>
     <span style="text-align: center; margin-right: 20px; cursor: pointer;">
       <label routerLink="/profil">

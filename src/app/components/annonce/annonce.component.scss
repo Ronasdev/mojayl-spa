@@ -72,7 +72,7 @@ a, a:hover{
  top: 115px;
  left:0%;
  width: 25%;
- height:61%;
+ height:100%;
  transition: 0.3s ;
  background-color: white;
  box-shadow:0 0 0,0 0 1px;
@@ -92,6 +92,15 @@ a, a:hover{
 }
 .m-right li:hover{
   background-color: lightblue;
+  color: white;
+}
+.m-right .li{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.m-right .li a{
+  display: block;
+  width: 100% !important;
 }
 .m-right .profil:hover{
   background-color: white;

@@ -66,7 +66,7 @@ a, a:hover{
  top: 115px;
  left:0%;
  width: 25%;
- height: 61%;
+ height: 100%;
  transition: 0.3s ;
  background-color: white;
  box-shadow:0 0 0,0 0 1px;
@@ -80,13 +80,20 @@ a, a:hover{
   width: 100%;
   cursor: pointer;
 }
+
 .m-right .li{
   padding-top: 20px;
   padding-bottom: 20px;
 }
 .m-right li:hover{
   background-color: lightblue;
+  color: white;
 }
+.m-right .li a{
+  display: block;
+  width: 100% !important;
+}
+
 .m-right .profil:hover{
   background-color: white;
 }
@@ -137,11 +144,25 @@ input[type="file"]{
   margin-right: 50px ;
   font-size:40px ;
 }
+.expediteur{
+  position: relative;
+}
+.expediteur small{
+  position: absolute;
+  left:50%;
+  top: 0;
+  font-size: 10px;
+
+}
+.a:hover{
+  color: inherit;
+  text-decoration: none;
+}
 .notifications a{
   font-size: 20px;
 }
 .notifications a:hover{
-  color: brown;
+  color: inherit;
 }
 
 @media screen and (max-width:780px) {
@@ -165,6 +186,7 @@ input[type="file"]{
     margin-right: 5px;
     word-wrap: break-word;
   }
+
   form{
     margin-top: 40px;
   }

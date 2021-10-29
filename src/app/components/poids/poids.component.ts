@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AnnonceService } from 'src/app/services/annonce.service';
+import { environment } from "../../../environments/environment.prod";
 
 @Component({
   selector: 'app-poids',

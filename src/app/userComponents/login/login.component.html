@@ -4,7 +4,7 @@
       <div class="card-header">
               <h4 class="card-title text-center text-info">Connectez-vous</h4>
               <p class="m-auto">
-                <a routerLink="/register" class="text-center m-auto">Cliquez pour s'enregistrer</a>
+                <a routerLink="/register" class="text-center text-primary m-auto">Cliquez pour s'enregistrer</a>
               </p>
       </div>
       <div class="card-body login-card-body">
@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-             <a  routerLink="/forgot-password" >Mot de passe oublier...</a>
+             <a  routerLink="/forgot-password" class="text-primary" >Mot de passe oublier...</a>
               <button type="submit" [ngClass]="{'btn':true, 'btn-info':true, 'form-control':true, 'my-3':true,'d-none':chargement }">Connexion</button>
               <button *ngIf="chargement" class=" btn btn-info form-control my-3" disabled>Connexion en cours....</button>
           </form>

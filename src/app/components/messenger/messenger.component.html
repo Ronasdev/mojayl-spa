@@ -1,1 +1,67 @@
-<p>messenger works!</p>
+<div class="wrapper ">
+  <section class="chat-area">
+    <header>
+      <a routerLink="/conversations" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+      <img [src]="imageUrl" alt="Photo du profil">
+      <div class="details">
+        <span *ngIf='user'>{{user.name}}</span>
+        <p>En ligne </p>
+      </div>
+    </header>
+    <div  class="chat-box box" id="box" >
+      <div *ngIf="!messages" style="visibility: hidden;">
+        <div  class="chat outgoing">
+          <div class="details">
+              <p>Lorem ipsum dolor sit amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque deserunt debitis necessitatibus veniam, ut iure blanditiis ducimus aperiam unde. Eum harum iusto dicta libero nobis expedita, consequatur quasi asperiores cumque placeat totam odio provident. Ipsum doloribus iure, similique odit soluta quis facere dignissimos assumenda commodi eaque, ipsam quidem minima ea?.</p>
+          </div>
+        </div>
+
+        <div  class="chat outgoing">
+          <div class="details">
+              <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit harum non expedita ab dolorum rem hic, delectus aperiam, provident, laboriosam ipsum amet quia. Cupiditate fugit temporibus doloribus ratione voluptas placeat voluptatibus magni nisi porro. Nesciunt nulla repellendus quaerat expedita accusamus blanditiis dicta nisi, id at enim esse doloremque nostrum voluptates pariatur ullam, deleniti alias possimus aspernatur. Nesciunt, dolor dolore in voluptate maiores dicta ipsam expedita culpa placeat inventore. Quia autem earum hic cupiditate porro, beatae quisquam, deserunt quidem sapiente ut, nihil delectus nam nemo! Soluta vero, explicabo perspiciatis voluptas eaque, ad molestias obcaecati repellat quae nulla ipsum exercitationem dignissimos omnis?.</p>
+          </div>
+        </div>
+      </div>
+      <div  *ngFor="let message of messages" id="messages" >
+        <div *ngIf="message.from.id != user.id" class="chat outgoing">
+
+          <div class="details text-right">
+            <small class="lead" style="font-size: small;">{{ago(message)}}</small>
+              <p>{{message.content}}</p>
+          </div>
+        </div>
+        <div *ngIf="message.from.id == user.id" class="chat incoming">
+          <img [src]="baseUrl+message.from.photo" [alt]="user.name">
+          <div class="details ">
+            <small class="lead"style="font-size: small;">{{ago(message)}}</small>
+              <p>{{message.content}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="typing-area publisher">
+
+      <!-- <span style="vertical-align: sub;" class="uk-input-group-addon">
+        <button><i class="fa fa-camera"></i></button>
+      </span> -->
+      <span class="publisher-btn file-group">
+        <!-- <button><i class="fa fa-paperclip file-browser"></i></button> -->
+        <button><i class="fas fa-image"></i></button>
+        <input type="file" accept="*/image">
+      </span>
+      <span style="vertical-align: sub;" class="uk-input-group-addon">
+        <button>    <i class="fas fa-heart"></i></button>
+      </span>
+
+      <textarea (keypress) ="sendMessage($event)" rows="2" class="publisher-input input-field" name="content" [(ngModel)]="content" placeholder="Ecrire un texte"></textarea>
+
+          <button class="publisher-btn text-primary ml-0"  ><i class="fa fa-smile"></i></button>
+          <!-- <button class="publisher-btn text-info"  ><i class="fa fa-paper-plane"></i></button> -->
+          <div class="message__loading" *ngIf="loading">
+            <div class="loader">
+
+            </div>
+          </div>
+    </form>
+  </section>
+</div>

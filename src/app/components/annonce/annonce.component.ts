@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnnonceService } from 'src/app/services/annonce.service';
+import { environment } from "../../../environments/environment.prod";
 
 @Component({
   selector: 'app-annonce',
@@ -17,7 +18,7 @@ export class AnnonceComponent implements OnInit {
 
   imageUrl="../../../assets/images/profil.jpg";
   imageDefault ="../../../assets/images/profil.jpg";
-  baseUrl='https://mojayl-api.herokuapp.com/public/imagesProfil/';
+  baseUrl=environment.apiUrl+'public/imagesProfil/';
   defaultPhoto:any;
 
   constructor(private route:ActivatedRoute,private annoneService:AnnonceService,private router:Router) { }
@@ -39,6 +40,7 @@ export class AnnonceComponent implements OnInit {
       (res:any)=>{
         this.annonce= res.data;
         this.author = res.author;
+
       },
       (err:any)=>this.message=err.message
     )

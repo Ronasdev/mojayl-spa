@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -29,36 +30,36 @@ export class AnnonceService {
   constructor(private http: HttpClient) { }
 
   getPays(pays:any =""){
-    return this.http.post("https://mojayl-api.herokuapp.com/countries",pays,{headers:this.headers});
+    return this.http.post(environment.apiUrl+"countries",pays,{headers:this.headers});
   }
   getCities(id:number,data:any=""){
-    return this.http.post("https://mojayl-api.herokuapp.com/cities/"+id,data,{headers:this.headers});
+    return this.http.post(environment.apiUrl+"cities/"+id,data,{headers:this.headers});
   }
 
 
   registerAnnonce():any{
 
-    return this.http.post("https://mojayl-api.herokuapp.com/topicality_register",this.topicality,{headers:this.headers});
+    return this.http.post(environment.apiUrl+"topicality_register",this.topicality,{headers:this.headers});
   }
   getAll(){
     const destination = this.expIfo.destination;
     const city = this.expIfo.city
 
-    return this.http.get("https://mojayl-api.herokuapp.com/topicalities/"+destination+'/'+city,{headers:this.headers});
+    return this.http.get(environment.apiUrl+"topicalities/"+destination+'/'+city,{headers:this.headers});
   }
   getAnnonceById(id:number){
-    return this.http.get("https://mojayl-api.herokuapp.com/topicality/"+id,{headers:this.headers});
+    return this.http.get(environment.apiUrl+"topicality/"+id,{headers:this.headers});
   }
 
   getUserAnnonces(){
-    return this.http.get("https://mojayl-api.herokuapp.com/user_topicalities",{headers:this.headers});
+    return this.http.get(environment.apiUrl+"user_topicalities",{headers:this.headers});
   }
 
   updateAnnonce(id:number,data:any){
-    return this.http.post("https://mojayl-api.herokuapp.com/topicality_update/"+id,data,{headers:this.headers}) ;
+    return this.http.post(environment.apiUrl+"topicality_update/"+id,data,{headers:this.headers}) ;
   }
 
   deleteAnnonce(id:number){
-    return this.http.delete("https://mojayl-api.herokuapp.com/topicality_delete/"+id,{headers:this.headers});
+    return this.http.delete(environment.apiUrl+"topicality_delete/"+id,{headers:this.headers});
   }
 }

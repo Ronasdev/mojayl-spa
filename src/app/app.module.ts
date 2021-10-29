@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AnnonceUpdateComponent } from './components/annonce-update/annonce-update.component';
 import { ExpdPaysComponent } from './components/expd-pays/expd-pays.component';
 import { ExpdVilleComponent } from './components/expd-ville/expd-ville.component';
+import { ConversationsComponent } from './components/conversations/conversations.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ExpdVilleComponent } from './components/expd-ville/expd-ville.component
     AnnonceUpdateComponent,
     ExpdPaysComponent,
     ExpdVilleComponent,
+    ConversationsComponent,
   ],
   imports: [
     BrowserModule,

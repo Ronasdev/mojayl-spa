@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnnonceResumeComponent } from './components/annonce-resume/annonce-resume.component';
+import { AnnonceUpdateComponent } from './components/annonce-update/annonce-update.component';
 import { AnnonceComponent } from './components/annonce/annonce.component';
 import { AnnoncesComponent } from './components/annonces/annonces.component';
+import { ConversationsComponent } from './components/conversations/conversations.component';
 import { DateComponent } from './components/date/date.component';
 import { ExpdPaysComponent } from './components/expd-pays/expd-pays.component';
 import { ExpdVilleComponent } from './components/expd-ville/expd-ville.component';
@@ -45,11 +47,13 @@ const routes: Routes = [
   {path:'transporter/date',canActivate:[AuthGuardService],component:DateComponent},
   {path:'transporter/weight',canActivate:[AuthGuardService],component:PoidsComponent},
   {path:'annonce-resume',canActivate:[AuthGuardService],component:AnnonceResumeComponent},
+  {path:'annonce-update/:id',canActivate:[AuthGuardService],component:AnnonceUpdateComponent},
   {path:'annonces',canActivate:[AuthGuardService],component:AnnoncesComponent},
   {path:'annonce/:id',canActivate:[AuthGuardService],component:AnnonceComponent},
   {path:'expediteur/country',canActivate:[AuthGuardService], component:ExpdPaysComponent},
   {path:'expediteur/city/:id',canActivate:[AuthGuardService],component:ExpdVilleComponent},
-  {path:'poster/message',canActivate:[AuthGuardService],component:MessengerComponent},
+  {path:'conversations',canActivate:[AuthGuardService],component:ConversationsComponent},
+  {path:'conversations/:id',canActivate:[AuthGuardService],component:MessengerComponent},
   {path:"not-found",component:ForOhForComponent},
   {path:"**",redirectTo:'/not-found'}
 ];

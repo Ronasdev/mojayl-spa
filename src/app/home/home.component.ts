@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../services/user.service';
-import { environment } from "../../environments/environment";
+import { environment } from "../../environments/environment.prod";
+import { ConversationService } from '../services/conversation.service';
+import Pusher from 'pusher-js';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +21,53 @@ export class HomeComponent implements OnInit {
   form:FormGroup =new FormGroup({});
   defaultPhoto = true;
 
-  constructor(private router:Router, private userInfo:UserService,private formBuilder: FormBuilder,private toastr: ToastrService) { }
+  conversationCount = 0;
+
+  constructor(private router:Router, private userInfo:UserService,private formBuilder: FormBuilder,private toastr: ToastrService,private conversationService: ConversationService) { }
 
   ngOnInit(): void {
     //check status
     this.userInfo.status().subscribe(
       res=>console.log(res)
     );
+
+    //Loading user
+    this.loadUser();
+    this.createForm();
+    //conversation notification
+    this.countConversations();
+       // Enable pusher logging - don't include this in production
+       Pusher.logToConsole = true;
+
+       const pusher = new Pusher('563e5e968278ec7bd380', {
+         cluster: 'eu'
+       });
+
+       const channel = pusher.subscribe("chat");
+
+       channel.bind('newMessage', (data:any)=> {
+         if(data.unread){
+          this.conversationCount ++;
+          console.log(this.conversationCount);
+
+         }
+
+       });
+
+  }
+
+  countConversations(){
+    this.conversationService.conversations().subscribe(
+      (result:any)=>{
+        result.conversations.forEach((conversation:any) => {
+            if (conversation.unread !=0) {
+              this.conversationCount ++;
+            }
+        });
+
+      });
+  }
+  loadUser(){
     this.userInfo.user().subscribe(
       (result:any) =>{
         this.user = result;
@@ -35,7 +77,7 @@ export class HomeComponent implements OnInit {
           this.imageUrl ='../../../assets/images/profil.jpg';
           this.defaultPhoto=true;
         }else{
-          this.imageUrl ='https://mojayl-api.herokuapp.com/public/imagesProfil/'+this.user.photo ;
+          this.imageUrl =environment.apiUrl+'public/imagesProfil/'+this.user.photo ;
           this.defaultPhoto=false;
         }
 
@@ -46,10 +88,7 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     );
-    //Loading photo
-    this.createForm();
   }
-
 
   createForm(){
     this.form = this.formBuilder.group({
@@ -62,7 +101,7 @@ export class HomeComponent implements OnInit {
     formData.append('photo',this.files,this.files.name);
     this.userInfo.uploadFile(formData).subscribe(
       (res:any)=>{
-          this.imageUrl = 'https://mojayl-api.herokuapp.com/public/imagesProfil/'+res.profilUrl;
+          this.imageUrl = environment.apiUrl+'imagesProfil/'+res.profilUrl;
 
           console.log(this.imageUrl);
 
